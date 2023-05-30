@@ -1,38 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Saira+Semi+Condensed:wght@100;200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+:root {
+  /* COuleur Neutre */
+  --DarkSlateGrey: hsl(234, 29%, 20%);
+  --CharcoalGrey: hsl(235, 18%, 26%);
+  --Grey: hsl(231, 7%, 60%);
+  --WHite: hsl(0, 0%, 100%);
+
+  /* Couleur Primaire */
+  --Tomotato: hsl(4, 100%, 67%);
+}
+
+body {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+
+  background-color: var(--CharcoalGrey);
+}
+
 .App {
-  text-align: center;
+  position: relative;
+  max-width: 1100px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  width: 100%;
+  height: 550px;
+  border-radius: 15px;
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+}
+.container .left,
+.container .right {
+  height: 100%;
+  width: 550px;
+}
+.container .right {
+  position: relative;
+}
+.container .right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container .right span {
+  font-family: "Saira Semi Condensed", sans-serif;
+  position: absolute;
+  left: 50%;
+  top: 25px;
+  transform: translate(-50%, -50%);
+  font-weight: 500;
+  color: white;
+  font-size: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container .left {
+  padding: 10px 25px;
+}
+.container .left h1 {
+  font-size: 40px;
+  font-weight: 800;
+}
+.container .left h1 span {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--Tomotato);
+}
+.container .left p {
+  padding-top: 25px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #666;
+  text-align: justify;
+  line-height: 1.5;
+
+  padding-bottom: 15px;
+  border-bottom: 0.5px solid #8a8a8a;
+}
+
+.label_Subject {
   display: flex;
   flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+.label_Subject label {
+  font-size: 15px;
+}
+.label_Subject label span {
+  color: var(--Tomotato);
+}
+.label_Subject input {
+  padding: 10px;
+  height: 35px;
+  outline: none;
+  border-radius: 5px;
+  border-width: 0.5px;
+}
+.label_Subject input:focus {
+  box-shadow: 0 0 4px var(--Tomotato);
+}
+.group {
+  padding-top: 15px;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+  justify-content: space-between;
+}
+.pt {
+  padding-top: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: var(--Grey);
+  border: none;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+button:hover {
+  background-color: var(--Tomotato);
+  padding-left: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.check {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+.thanksContainer {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+.thanksContainer span {
+  color: #666;
+}
+.thanksMessage {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  border-bottom: 1px solid #8a8a8a;
+}
+article h2 {
+  color: var(--Tomotato);
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+article span {
+  line-height: 1.4;
+  letter-spacing: 1px;
+}
+.logoFooter {
+  position: absolute;
+  width: 147px;
+  height: 87px;
+  bottom: 20px;
+  right: 20px;
+}
+.logoThanks {
+  width: 170px; 
+}
+
+.container:hover img.logo02 {
+  transform: scale(1.1);
+}
+.logoFooter img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+@media screen and (max-width: 920px) {
+  .App {
+    max-width: 850px;
+    height: 100%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .container {
+    flex-direction: column;
+    height: 100%;
+    margin: 30px;
+    gap: 10px;
+  }
+  .container .left,
+  .container .right {
+    width: 100%;
+  }
+
+  .container .right img {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 15px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .group {
+    flex-direction: column;
+  }
+  .label_Subject input {
+    height: 40px;
+  }
+  .container {
+    margin: 30px 10px;
+  }
+
+  .container .left h1 {
+    font-size: 30px;
   }
 }
